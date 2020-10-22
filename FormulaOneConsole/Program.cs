@@ -9,6 +9,7 @@ namespace FormulaOneConsole
 
         public const string WORKINGPATH = @"C:\data\formulaone\";
         private const string CONNECTION_STRING = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + WORKINGPATH + @"FormulaOne.mdf;Integrated Security=True";
+        private static string[] tableNames = { "Country", "Driver", "Team" };
 
         static void Main(string[] args)
         {
@@ -48,8 +49,10 @@ namespace FormulaOneConsole
         private static void ResetDb()
         {
             //System.IO.File.Copy(WORKINGPATH + "FormulaOne.mdf", WORKINGPATH + "Backup.mdf", true);
+            BackupDb();
             bool OK = DropTable("Country");
             if (OK) OK = DropTable("Driver");
+            OK = false;
             if (OK) OK = DropTable("Team");
             if (OK) OK = ExecuteSqlScript("Countries.sql");
             if (OK) OK = ExecuteSqlScript("Drivers.sql");
@@ -63,6 +66,63 @@ namespace FormulaOneConsole
             {
                 //System.IO.File.Copy(WORKINGPATH + "Backup.mdf", WORKINGPATH + "FormulaOne.mdf", true);
                 //System.IO.File.Delete(WORKINGPATH + "Backup.mdf");
+                RestoreDb();
+            }
+        }
+
+        private static void BackupDb()
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(CONNECTION_STRING))
+                {
+                    string sqlStmt = "";
+                    foreach (string table in tableNames)
+                    {
+                        sqlStmt += "DROP TABLE " + table + "_bck;";
+                        sqlStmt += "SELECT * INTO " + table + "_bck FROM " + table + ";";
+                    }
+                    Console.WriteLine(sqlStmt);
+                    using (SqlCommand bckCommand = new SqlCommand(sqlStmt, conn))
+                    {
+                        conn.Open();
+                        bckCommand.ExecuteNonQuery();
+                        conn.Close();
+                        Console.WriteLine("Backup Created Sucessfully");
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine("Backup Not Created: " + exc.Message);
+            }
+        }
+
+        private static void RestoreDb()
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(CONNECTION_STRING))
+                {
+                    string sqlStmt = "";
+                    foreach (string table in tableNames)
+                    {
+                        sqlStmt += "DROP TABLE " + table + ";";
+                        sqlStmt += "SELECT * INTO " + table + " FROM " + table + "_bck;";
+                    }
+                    Console.WriteLine(sqlStmt);
+                    using (SqlCommand bckCommand = new SqlCommand(sqlStmt, conn))
+                    {
+                        conn.Open();
+                        bckCommand.ExecuteNonQuery();
+                        conn.Close();
+                        Console.WriteLine("DB Restored Sucessfully");
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine("DB Not Restored: " + exc.Message);
             }
         }
 
