@@ -1,0 +1,32 @@
+CREATE TABLE [dbo].[Point] (
+[place] varchar(15) NOT NULL default '',
+[pPoint] int NOT NULL default '',
+PRIMARY KEY ([place])
+);
+
+INSERT INTO [Point] VALUES ('1',25);
+INSERT INTO [Point] VALUES ('2',18);
+INSERT INTO [Point] VALUES ('3',15);
+INSERT INTO [Point] VALUES ('4',12);
+INSERT INTO [Point] VALUES ('5',10);
+INSERT INTO [Point] VALUES ('6',8);
+INSERT INTO [Point] VALUES ('7',6);
+INSERT INTO [Point] VALUES ('8',4);
+INSERT INTO [Point] VALUES ('9',2);
+INSERT INTO [Point] VALUES ('10',1);
+INSERT INTO [Point] VALUES ('11',0);
+INSERT INTO [Point] VALUES ('12',0);
+INSERT INTO [Point] VALUES ('13',0);
+INSERT INTO [Point] VALUES ('14',0);
+INSERT INTO [Point] VALUES ('15',0);
+INSERT INTO [Point] VALUES ('16',0);
+INSERT INTO [Point] VALUES ('17',0);
+INSERT INTO [Point] VALUES ('18',0);
+INSERT INTO [Point] VALUES ('19',0);
+INSERT INTO [Point] VALUES ('20',0);
+
+INSERT INTO [Point] VALUES ('DNF',0);
+INSERT INTO [Point] VALUES ('DSQ',0);
+
+
+

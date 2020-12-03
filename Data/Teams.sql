@@ -18,9 +18,10 @@ INSERT INTO [Team] VALUES ('MCL','McLaren F1 Team','Andreas Seidl','Renault',196
 INSERT INTO [Team] VALUES ('RPT','BWT Racing Point F1 Team','Otmar Szafnauer','Mercedes',2019,'Silverstone','GB','https://www.formula1.com/content/fom-website/en/teams/Racing-Point/_jcr_content/logo.img.jpg/1582650443223.jpg','https://www.formula1.com/content/dam/fom-website/teams/2020/racing-point.png.transform/2col/image.png');
 INSERT INTO [Team] VALUES ('REN','Renault DP World F1 Team','Cyril Abiteboul','Renault',1986,'Enstone','GB','https://www.formula1.com/content/fom-website/en/teams/Renault/_jcr_content/logo.img.jpg/1582650443223.jpg','https://www.formula1.com/content/dam/fom-website/teams/2020/renault.png.transform/2col/image.png');
 INSERT INTO [Team] VALUES ('ATR','Scuderia Alpha Tauri','Franz Tost','Honda',2020,'Faenza','IT','https://www.formula1.com/content/fom-website/en/teams/AlphaTauri/_jcr_content/logo.img.jpg/1582650443223.jpg','https://www.formula1.com/content/dam/fom-website/teams/2020/alphatauri.png.transform/2col/image.png');
-INSERT INTO [Team] VALUES ('ARR','Alfa Romeo Racing ORLEAN','Frédéroc Vasseur','Ferrari',1993,'Hinwil','CH','https://www.formula1.com/content/fom-website/en/teams/Alfa-Romeo-Racing/_jcr_content/logo.img.jpg/1582650443223.jpg','https://www.formula1.com/content/dam/fom-website/teams/2020/alfa-romeo-racing.png.transform/2col/image.png');
+INSERT INTO [Team] VALUES ('ARR','Alfa Romeo Racing ORLEAN','FrÃ©dÃ©roc Vasseur','Ferrari',1993,'Hinwil','CH','https://www.formula1.com/content/fom-website/en/teams/Alfa-Romeo-Racing/_jcr_content/logo.img.jpg/1582650443223.jpg','https://www.formula1.com/content/dam/fom-website/teams/2020/alfa-romeo-racing.png.transform/2col/image.png');
 INSERT INTO [Team] VALUES ('HAS','Haas F1 Team','Guenther Steiner','Ferrari',2016,'Kannapolis','US','https://www.formula1.com/content/fom-website/en/teams/Haas-F1-Team/_jcr_content/logo.img.png/1568040720597.png','https://www.formula1.com/content/dam/fom-website/teams/2020/haas-f1-team.png.transform/2col/image.png');
 INSERT INTO [Team] VALUES ('WLR','Williams Racing','Simon Roberts','Mercedes',1978,'Grove','GB','https://www.formula1.com/content/fom-website/en/teams/Williams/_jcr_content/logo.img.jpg/1582650443223.jpg','https://www.formula1.com/content/dam/fom-website/teams/2020/williams.png.transform/2col/image.png');
+
 
 
 

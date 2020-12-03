@@ -1,0 +1,15 @@
+Tables:
+--Driver
+-name
+-surname
+
+--Team (small logo+ extended logo+ car+ main colour)
+-country
+-name
+-fullName
+-team chiefs
+-WR
+-races won
+
+related to:
+--Country
