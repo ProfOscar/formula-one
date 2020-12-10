@@ -10,8 +10,17 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            Hello World!
+            <!--
+            UserName <asp:TextBox ID="txtUserName" runat="server" /> <br />
+            Password <input type="text" id="txtPassword" /> <br />
+            -->
+            <asp:Button ID="btnInvia" runat="server" Text="Invia" /> <br />
+            <asp:Label ID="lblMessaggio" runat="server" Text=" " />
+        </div>
+        <div>
+            <asp:ListBox ID="lbxNazioni" runat="server" Height="600px" Width="800px"></asp:ListBox>
         </div>
     </form>
+    
 </body>
 </html>

@@ -18,6 +18,33 @@ namespace FormulaOneDLL
         public const string CONNECTION_STRING = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename="+ DBPATH + "FormulaOne.mdf;Integrated Security=True";
         //private static string RESTORE_CONNECTION_STRING = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + DBPATH + @"FormulaOne.bak; Integrated Security=True";
 
+        public List<string> GetCountries()
+        {
+            List<string> retVal = new List<string>();
+            using (SqlConnection dbConn = new SqlConnection())
+            {
+                dbConn.ConnectionString = CONNECTION_STRING;
+                Console.WriteLine("\nQuery data example:");
+                Console.WriteLine("=========================================\n");
+                String sql = "SELECT * FROM country";
+                using (SqlCommand command = new SqlCommand(sql, dbConn))
+                {
+                    dbConn.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string IsoCode = reader.GetString(0);
+                            string descr = reader.GetString(1);
+                            Console.WriteLine("{0} {1}", IsoCode, descr);
+                            retVal.Add(IsoCode + " - " + descr);
+                        }
+                    }
+                }
+            }
+            return retVal;
+        }
+
         public void ExecuteSqlScript(string sqlScriptName)
         {
             var fileContent = File.ReadAllText(QUERYPATH + sqlScriptName);
