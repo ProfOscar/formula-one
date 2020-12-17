@@ -18,7 +18,8 @@
             <asp:Label ID="lblMessaggio" runat="server" Text=" " />
         </div>
         <div>
-            <asp:ListBox ID="lbxNazioni" runat="server" Height="600px" Width="800px"></asp:ListBox>
+            <asp:GridView ID="dgvTabella" runat="server"></asp:GridView>
+            <asp:ListBox ID="lbxNazioni" runat="server" Height="400px" Width="400px"></asp:ListBox>
         </div>
     </form>
     

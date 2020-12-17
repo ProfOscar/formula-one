@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.IO;
-
+using System.Data;
 
 namespace FormulaOneDLL
 {
@@ -17,6 +17,22 @@ namespace FormulaOneDLL
         public const string DBPATH = @"C:\data\F1\";
         public const string CONNECTION_STRING = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename="+ DBPATH + "FormulaOne.mdf;Integrated Security=True";
         //private static string RESTORE_CONNECTION_STRING = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + DBPATH + @"FormulaOne.bak; Integrated Security=True";
+
+
+        public DataTable GetDataTable(string tableName)
+        {
+            DataTable retVal = new DataTable();
+            string connString = CONNECTION_STRING;
+            string query = "select * from " + tableName;
+            SqlConnection conn = new SqlConnection(connString);
+            SqlCommand cmd = new SqlCommand(query, conn);
+            conn.Open();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(retVal);
+            conn.Close();
+            da.Dispose();
+            return retVal;
+        }
 
         public List<string> GetCountries()
         {

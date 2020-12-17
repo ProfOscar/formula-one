@@ -16,7 +16,8 @@ namespace FormulaOneWebForm
             {
                 // Inizializzazioni che vengono eseguite solo la prima volta che carico la pagina
                 // lblMessaggio.Text = "DIGITA USERNAME E PASSWORD, POI PREMI IL PULSANTE INVIA";
-                lblMessaggio.Text = "Premi il pulsante INVIA, apparirà la lista delle nazioni gestite.";
+                lbxNazioni.Visible = false;
+                lblMessaggio.Text = "Premi il pulsante INVIA, apparirà la griglia dei team e la lista delle nazioni gestite.";
             }
             else
             {
@@ -24,8 +25,11 @@ namespace FormulaOneWebForm
                 // lblMessaggio.Text = "Benvenuto al sig. " + txtUserName.Text;
                 // Riempio la lista nazioni
                 DBtools myTools = new DBtools();
+                dgvTabella.DataSource = myTools.GetDataTable("Team");
+                dgvTabella.DataBind();
                 lbxNazioni.DataSource = myTools.GetCountries();
                 lbxNazioni.DataBind();
+                lbxNazioni.Visible = true;
             }
         }
     }

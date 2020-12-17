@@ -51,6 +51,15 @@ namespace FormulaOneWebForm
         protected global::System.Web.UI.WebControls.Label lblMessaggio;
 
         /// <summary>
+        /// Controllo dgvTabella.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView dgvTabella;
+
+        /// <summary>
         /// Controllo lbxNazioni.
         /// </summary>
         /// <remarks>
