@@ -61,6 +61,53 @@ namespace FormulaOneDLL
             return retVal;
         }
 
+        public List<Country> GetCountriesObj()
+        {
+            List<Country> retVal = new List<Country>();
+            using (SqlConnection dbConn = new SqlConnection())
+            {
+                dbConn.ConnectionString = CONNECTION_STRING;
+                String sql = "SELECT * FROM country";
+                using (SqlCommand command = new SqlCommand(sql, dbConn))
+                {
+                    dbConn.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string IsoCode = reader.GetString(0);
+                            string descr = reader.GetString(1);
+                            retVal.Add(new Country(IsoCode, descr));
+                        }
+                    }
+                }
+            }
+            return retVal;
+        }
+        public Country GetCountry(string isoCode)
+        {
+            Country retVal = null;
+            using (SqlConnection dbConn = new SqlConnection())
+            {
+                dbConn.ConnectionString = CONNECTION_STRING;
+                String sql = "SELECT * FROM country WHERE countryCode='" + isoCode + "';";
+                using (SqlCommand command = new SqlCommand(sql, dbConn))
+                {
+                    dbConn.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string IsoCode = reader.GetString(0);
+                            string descr = reader.GetString(1);
+                            retVal = new Country(IsoCode, descr);
+                        }
+                    }
+                }
+            }
+            return retVal;
+        }
+
         public void ExecuteSqlScript(string sqlScriptName)
         {
             var fileContent = File.ReadAllText(QUERYPATH + sqlScriptName);
